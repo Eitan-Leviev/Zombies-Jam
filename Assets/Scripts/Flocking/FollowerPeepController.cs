@@ -13,6 +13,9 @@ namespace Flocking {
         [TagSelector]
         [SerializeField] string peepTag;
         [SerializeField] bool repelFromSameGroup;
+        
+        [SerializeField]
+        private int[] weights = new[]{1,4,2};
 
         private static readonly Collider[] COLLIDER_RESULTS = new Collider[10];
 
@@ -43,7 +46,9 @@ namespace Flocking {
             // There will always be at least one hit on our own collider.
             if (hits <= 1) return;
 
-            var avgDirection = Vector3.zero;
+            var separation = Vector3.zero;
+            var alignment = Vector3.zero;
+            var cohesion = Vector3.zero;
             for (int i = 0; i < hits; i++) {
                 var hit = COLLIDER_RESULTS[i];
                 // Ignore self.
@@ -91,9 +96,16 @@ namespace Flocking {
                     forceWeight *= Mathf.Lerp(0.1f, 1f, t);
                 }
 
+                
+                if (hit.CompareTag(peepTag)) {
+                    var otherPeed = hit.attachedRigidbody.GetComponent<PeepController>();
+                    alignment += otherPeed.transform.forward.GetWithMagnitude(forceWeight);
+                    cohesion += otherPeed.Position.GetWithMagnitude(forceWeight);
+                }
+                
                 direction = direction.normalized * forceWeight;
                 if (repel) {
-                    avgDirection -= direction;
+                    separation -= direction;
                     DebugDraw.DrawArrowXZ(
                         position + Vector3.up,
                         -direction * 3f,
@@ -102,7 +114,7 @@ namespace Flocking {
                         Color.magenta,
                         navigationTimer.Duration / 2);
                 } else {
-                    avgDirection += direction;
+                    separation += direction;
                     DebugDraw.DrawArrowXZ(
                         position + Vector3.up,
                         direction * 3f,
@@ -112,9 +124,11 @@ namespace Flocking {
                         navigationTimer.Duration / 2);
                 }
             }
-            if (avgDirection.sqrMagnitude < 0.1f) return;
 
-            peep.DesiredVelocity = avgDirection.normalized.ToVector2XZ();
+            var desiredVelocity = (weights[0] * separation + weights[1] * alignment + weights[2] * cohesion) / (weights[0] + weights[1] + weights[2]);
+            if (desiredVelocity.sqrMagnitude < 0.1f) return;
+
+            peep.DesiredVelocity = desiredVelocity.normalized.ToVector2XZ();
         }
 
         protected void OnDrawGizmos() {
