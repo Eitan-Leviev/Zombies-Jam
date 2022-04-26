@@ -1,0 +1,73 @@
+# Apply native OS line-endings on checkout of these files...
+*.boo              text
+*.c                text
+*.cginc            text
+*.config           text
+*.contentproj      text
+*.cpp              text
+*.dae              text
+*.DAE              text
+*.dtd              text
+*.fx               text
+*.glsl             text
+*.h                text
+*.inc              text
+*.ini              text
+*.js               text
+*.JSFL             text
+*.jsfl             text
+*.json             text
+*.log              text
+*.md               text
+*.mel              text
+*.php              text
+*.shader           text
+*.txt              text
+*.TXT              text
+*.xaml             text
+*.xml              text
+*.xsd              text
+.gitattributes     text
+.gitignore         text
+*.shadergraph      text
+*.shadersubgraph   text
+COPYING            text
+INSTALL*           text
+KEYS*              text
+LICENSE*           text
+NEWS*              text
+NOTICE*            text
+README*            text
+TODO*              text
+WHATSNEW*          text
+# Apply Unix-style LF line-endings on checkout of these files...
+*.meta             text eol=lf
+*.sh               text eol=lf
+*.vspscc           text eol=lf
+*.htaccess          text eol=lf
+*.cs               text eol=lf
+# Previous "binary"
+*.unity            text eol=lf
+*.asset            text eol=lf
+*.prefab           text eol=lf
+# Apply Windows/DOS-style CR-LF line-endings on checkout of these files...
+*.bat              text eol=crlf
+*.cmd              text eol=crlf
+*.csproj           text eol=crlf
+*.sln              text eol=crlf
+*.user             text eol=crlf
+*.vcproj           text eol=crlf
+*.css              text eol=crlf
+*.htm              text eol=crlf
+*.html             text eol=crlf
+# No end-of-line conversions are applied (i.e., "-text -diff") to these files...
+*.anim             text
+*.controller       text
+*.guiskin          binary
+*.ht               binary
+*.mat              text
+*.mb               binary
+*.PCX              binary
+*.pcx              binary
+*.physicMaterial   text
+*.physicmaterial   text

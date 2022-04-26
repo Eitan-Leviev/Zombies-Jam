@@ -1,0 +1,19 @@
+{
+    "name": "avrahamy-math-editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:76a1170f856024664b33ce5e7f490396",
+        "GUID:767a75e938b8c4a57b6827f3069ac3c9"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
