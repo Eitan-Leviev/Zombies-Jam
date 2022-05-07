@@ -27,7 +27,7 @@ namespace Flocking {
 
         protected void OnEnable() {
             navigationTimer.Start();
-            peep.DesiredVelocity = Random.insideUnitCircle.normalized;
+            // peep.DesiredVelocity = Random.insideUnitCircle.normalized;
         }
 
         protected void Update() {
@@ -89,10 +89,10 @@ namespace Flocking {
                 // Angle between forward to other collider.
                 var angle = transform.forward.GetAngleBetweenXZ(direction);
                 var absAngle = Mathf.Abs(angle);
-                if (absAngle > 90f) {
+                if (absAngle > 120f) {
                     // Decrease weight of colliders that are behind the peep.
                     // The closer to the back, the lower the weight.
-                    var t = Mathf.InverseLerp(180f, 90f, absAngle);
+                    var t = Mathf.InverseLerp(180f, 120f, absAngle);
                     forceWeight *= Mathf.Lerp(0.1f, 1f, t);
                 }
 
@@ -126,7 +126,11 @@ namespace Flocking {
             }
 
             var desiredVelocity = (weights[0] * separation + weights[1] * alignment + weights[2] * cohesion) / (weights[0] + weights[1] + weights[2]);
-            if (desiredVelocity.sqrMagnitude < 0.1f) return;
+            if (desiredVelocity.sqrMagnitude < 0.1f)
+            {
+                peep.DesiredVelocity = Vector2.zero;
+                return;
+            }
 
             peep.DesiredVelocity = desiredVelocity.normalized.ToVector2XZ();
         }
