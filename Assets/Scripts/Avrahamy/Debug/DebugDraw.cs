@@ -3,6 +3,7 @@
 using UnityEngine;
 using System;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using Avrahamy.Math;
 
 namespace Avrahamy {
@@ -311,6 +312,43 @@ namespace Avrahamy {
                 direction = direction.RotateInDegreesAroundY(angleStepSize);
                 start = end;
                 end = position + direction;
+                DrawLineFunc(start, end, color);
+            }
+            DrawLineFunc(end, position, color);
+        }
+
+        [Conditional("DEBUG_DRAW")]
+        public static void GizmosDrawBackSector(Vector3 position,
+            Func<Vector3, float> radius,
+            float sectorStartAngle,
+            float sectorEndAngle, 
+            Color color) {
+            DrawBackSector(position, radius,  sectorStartAngle, sectorEndAngle, color, (start, end, lineColor) => GizmosDrawLine(start, end, lineColor));
+        }
+        
+        [Conditional("DEBUG_DRAW")]
+        private static void DrawBackSector(Vector3 position,
+            Func<Vector3, float> radius,
+            float sectorStartAngle, 
+            float sectorEndAngle,
+            Color color,
+            Action<Vector3, Vector3, Color> DrawLineFunc)
+        {
+            if (sectorEndAngle < sectorStartAngle) {
+                (sectorStartAngle, sectorEndAngle) = (sectorEndAngle, sectorStartAngle);
+            }
+            var direction = Vector3.forward;
+            direction = direction.RotateInDegreesAroundY(sectorEndAngle);
+            var sectorAngle = 360 - (sectorEndAngle - sectorStartAngle);
+            var angleSteps = Mathf.CeilToInt(sectorAngle / 8f);
+            var angleStepSize = sectorAngle / angleSteps;
+            var start = position + direction * radius(direction);
+            DrawLineFunc(position, start, color);
+            var end = start;
+            for (int i = 0; i < angleSteps; i++) {
+                direction = direction.RotateInDegreesAroundY(angleStepSize);
+                start = end;
+                end = position + direction * radius(direction);
                 DrawLineFunc(start, end, color);
             }
             DrawLineFunc(end, position, color);
