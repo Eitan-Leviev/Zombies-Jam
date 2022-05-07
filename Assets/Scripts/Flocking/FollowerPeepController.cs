@@ -80,6 +80,12 @@ namespace Flocking
         [Min(0)]
         private float leaderWeight = 2;
 
+        [SerializeField]
+        private bool ignoreWalls = false;
+
+        [SerializeField]
+        private int zombieGroup = 0;
+
         protected void Reset()
         {
             if (peep == null)
@@ -218,6 +224,10 @@ namespace Flocking
                     // TODO: Zombies chase, humans run away
                     repel = otherPeed.Group != peep.Group ? repelFromOtherGroup : repelFromSameGroup;
                 }
+                else if (ignoreWalls)
+                {
+                    continue;
+                }
 
                 var closestPoint = hit.ClosestPoint(position);
                 closestPoint.y = 0f;
@@ -269,6 +279,14 @@ namespace Flocking
                     }
                     else
                     {
+                        if (otherPeed.Group == zombieGroup)
+                        {
+                            var zombie = hit.attachedRigidbody.GetComponent<ZombieConvert>();
+                            if (zombie.CheckConvert(peep, magnitude))
+                            {
+                                return Vector3.zero; // TODO:
+                            }
+                        }
                         //otherAli += simpleWeight * otherPeed.Forward; TODO: we care about zombie alignment?
                         otherCoh += simpleWeight * closestPoint;//.GetWithMagnitude(distancePercent);
                         otCount++;
