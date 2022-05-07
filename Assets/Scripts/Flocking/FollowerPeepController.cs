@@ -25,6 +25,9 @@ namespace Flocking
         [SerializeField]
         LayerMask navigationMask;
 
+        [SerializeField]
+        private LayerMask leaderMask;
+
         [TagSelector]
         [SerializeField]
         string peepTag;
@@ -40,11 +43,11 @@ namespace Flocking
         {
             [SerializeField]
             [Min(0)]
-            public int separation = 1;
+            public int separation = 4;
 
             [SerializeField]
             [Min(0)]
-            public int alignment = 1;
+            public int alignment = 3;
 
             [SerializeField]
             [Min(0)]
@@ -52,13 +55,24 @@ namespace Flocking
 
             [SerializeField]
             [Min(0)]
-            public int self = 0;
+            public int self = 1;
             
             public int Sum => separation + alignment + cohesion + self;
         }
 
 
         private static readonly Collider[] COLLIDER_RESULTS = new Collider[10];
+        [SerializeField]
+        [Min(0)]
+        private float distanceToLeader = 1;
+
+        [SerializeField]
+        [Min(0)]
+        private float slowDistanceFromLeader;
+
+        [SerializeField]
+        [Min(0)]
+        private float leaderWeight = 2;
 
         protected void Reset()
         {
@@ -85,21 +99,52 @@ namespace Flocking
 
             var position = peep.Position;
 
-            // Check for colliders in the sense radius.
+            var leader = Vector3.zero;
+            
             var hits = Physics.OverlapSphereNonAlloc(
+                position,
+                senseRadius,
+                COLLIDER_RESULTS,
+                leaderMask.value);
+            if (hits > 0)
+            {
+                for (int i = 0; i < hits; i++)
+                {
+                    var hit = COLLIDER_RESULTS[i];
+                    if (hit.attachedRigidbody != null &&
+                        hit.attachedRigidbody.gameObject == peep.gameObject)
+                    {
+                        continue;
+                    }
+                    
+                    var otherPeed = hit.attachedRigidbody.GetComponent<PeepController>();
+                    if (otherPeed.Group != peep.Group)
+                    {
+                        continue;
+                    }
+
+                    leader += LeaderFollow(otherPeed, position);
+                }
+            }
+            
+            // Check for colliders in the sense radius.
+            hits = Physics.OverlapSphereNonAlloc(
                 position,
                 senseRadius,
                 COLLIDER_RESULTS,
                 navigationMask.value);
 
+            var desiredVelocity = Vector3.zero;
             // There will always be at least one hit on our own collider.
-            if (hits <= 1)
+            if (hits > 1)
             {
-                // peep.DesiredVelocity *= 0.8f;
-                return;
+                desiredVelocity = DesiredVelocity(hits, position);
             }
-
-            var desiredVelocity = DesiredVelocity(hits, position);
+            if (!leader.Equals(Vector3.zero))
+            {
+                desiredVelocity = (desiredVelocity + leaderWeight * leader) / (leaderWeight + 1);
+            }
+           
 
             if (desiredVelocity.sqrMagnitude < 0.1f)
             {
@@ -109,13 +154,37 @@ namespace Flocking
             peep.DesiredVelocity = desiredVelocity.normalized.ToVector2XZ();
         }
 
+        private Vector3 LeaderFollow(PeepController leader, Vector3 position)
+        {
+            var followTarget = leader.Position - leader.Forward * distanceToLeader;
+            followTarget.y = 0f;
+            DebugDraw.DrawLine(
+                position + Vector3.up,
+                followTarget + Vector3.up,
+                Color.yellow,
+                navigationTimer.Duration / 2);
+            var targetOffset = followTarget - position;
+
+            var distance = targetOffset.magnitude;
+            var rampedSpeed = peep.MaxSpeed * (distance / slowDistanceFromLeader);
+            var clippedSpeed = Mathf.Min(rampedSpeed, peep.MaxSpeed);
+            var desiredVelocity = (clippedSpeed / distance) * targetOffset;
+            DebugDraw.DrawArrowXZ(
+                position + Vector3.up,
+                desiredVelocity - peep.Forward,//Velocity.ToVector3XZ(),
+                1f,
+                30f,
+                Color.cyan,
+                navigationTimer.Duration / 2);
+            return desiredVelocity - peep.Forward;//Velocity.ToVector3XZ();
+        }
+
         private Vector3 DesiredVelocity(int hits, Vector3 position)
         {
             var separation = Vector3.zero;
             var alignment = Vector3.zero;
             var cohesion = Vector3.zero;
             var coCount = 0;
-            var sumWeights = 0f;
 
             for (int i = 0; i < hits; i++)
             {
@@ -136,7 +205,8 @@ namespace Flocking
                     // Sensed another peep.
                     var otherPeed = hit.attachedRigidbody.GetComponent<PeepController>();
                     // Ignore peeps that are not from this group.
-                    if (otherPeed.Group != peep.Group) // TODO: Zombies chase, humans run away
+                    // TODO: Zombies chase, humans run away
+                    if (otherPeed.Group != peep.Group)
                     {
                         continue;
                     }
@@ -165,14 +235,10 @@ namespace Flocking
                 distancePercent = Mathf.Max(distancePercent, 0.01f);
 
                 // Force is stronger when distance percent is closer to 0 (1/x-1).
-                var forceWeight = 1f / distancePercent - 1f; // TODO: the article says 1/r^2?
-                // TODO: also try linear -
-                // var forceWeight = 1 / distancePercent * distancePercent;
-                // var forceWeight = 1 - distancePercent;
+                var forceWeight = 1f / distancePercent - 1f;
                 var simpleWeight = 1f;
 
                 // Angle between forward to other collider.
-                // TODO: do we want the angle to do decide in our game at all? maybe different for each team?
                 var angle = peep.Forward.GetAngleBetweenXZ(direction);
                 var absAngle = Mathf.Abs(angle);
                 if (absAngle > visionAngle)
@@ -189,19 +255,10 @@ namespace Flocking
                 if (hit.CompareTag(peepTag))
                 {
                     var otherPeed = hit.attachedRigidbody.GetComponent<PeepController>();
-                    if (otherPeed.Group != peep.Group)
-                    {
-                        continue;
-                    }
-
                     // TODO: only if same group for now, require thinking of desired state
-                    // alignment += simpleWeight * otherPeed.Velocity.ToVector3XZ().normalized;//.GetWithMagnitude(forceWeight);
-                    alignment += simpleWeight * otherPeed.Forward;//.GetWithMagnitude(forceWeight);
-                    // alignment += otherPeed.transform.forward; //.GetWithMagnitude(forceWeight); //TODO: should we apply weight for this 2? 
-                    // cohesion += simpleWeight > 0.8f ? closestPoint : Vector3.zero; //.GetWithMagnitude(distancePercent);
+                    alignment += simpleWeight * otherPeed.Forward;
                     cohesion += simpleWeight * closestPoint;//.GetWithMagnitude(distancePercent);
                     coCount++;
-                    sumWeights += simpleWeight;
                 }
 
                 direction = direction.normalized * forceWeight;
@@ -228,15 +285,21 @@ namespace Flocking
                         navigationTimer.Duration / 2);
                 }
             }
-
-            // TODO: change to desired velocity instead of forward?
-            // alignment = weights.alg * (alignment / coCount - peep.Velocity.ToVector3XZ().normalized);
-            alignment = weights.alignment * (alignment / coCount - peep.Forward);
-            cohesion = weights.cohesion * (cohesion / coCount - position); // TODO: coh = 9/100
-            separation = weights.separation * separation;
             var self = weights.self * peep.Velocity.ToVector3XZ();
-
-            var desiredVelocity = (cohesion + alignment + separation + self) / weights.Sum;
+            separation = weights.separation * separation;
+            
+            Vector3 desiredVelocity;
+            if (coCount == 0)
+            {
+                desiredVelocity = (self + separation) / (weights.self + weights.separation);
+            }
+            else
+            {
+                alignment = weights.alignment * (alignment / coCount - peep.Forward);
+                cohesion = weights.cohesion * (cohesion / coCount - position);
+                desiredVelocity = (cohesion + alignment + separation + self) / weights.Sum;
+            }
+            
             DebugDraw.DrawArrowXZ(
                 position + Vector3.up,
                 desiredVelocity,
@@ -244,12 +307,7 @@ namespace Flocking
                 30f,
                 Color.black,
                 navigationTimer.Duration / 2);
-            // return desiredVelocity;
-
-            // cohesion = cohesion.normalized;
-            // alignment = alignment.normalized;
-            // separation = separation.normalized;
-
+            
             DebugDraw.DrawArrowXZ(
                 position + Vector3.up,
                 separation,
@@ -272,9 +330,6 @@ namespace Flocking
                 Color.yellow,
                 navigationTimer.Duration / 2);
 
-            // desiredVelocity =
-                // (weights.sep * separation + weights.alg * alignment + weights.coh * cohesion) /
-                // (weights.alg + weights.sep + weights.coh);
             return desiredVelocity;
         }
 
