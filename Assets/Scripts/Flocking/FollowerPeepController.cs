@@ -40,17 +40,21 @@ namespace Flocking
         {
             [SerializeField]
             [Min(0)]
-            public int sep = 1;
+            public int separation = 1;
 
             [SerializeField]
             [Min(0)]
-            public int alg = 1;
+            public int alignment = 1;
 
             [SerializeField]
             [Min(0)]
-            public int coh = 1;
+            public int cohesion = 1;
+
+            [SerializeField]
+            [Min(0)]
+            public int self = 0;
             
-            public int Sum => sep + alg + coh;
+            public int Sum => separation + alignment + cohesion + self;
         }
 
 
@@ -169,7 +173,7 @@ namespace Flocking
 
                 // Angle between forward to other collider.
                 // TODO: do we want the angle to do decide in our game at all? maybe different for each team?
-                var angle = transform.forward.GetAngleBetweenXZ(direction);
+                var angle = peep.Forward.GetAngleBetweenXZ(direction);
                 var absAngle = Mathf.Abs(angle);
                 if (absAngle > visionAngle)
                 {
@@ -191,7 +195,8 @@ namespace Flocking
                     }
 
                     // TODO: only if same group for now, require thinking of desired state
-                    alignment += simpleWeight * otherPeed.transform.forward;//.GetWithMagnitude(forceWeight);
+                    // alignment += simpleWeight * otherPeed.Velocity.ToVector3XZ().normalized;//.GetWithMagnitude(forceWeight);
+                    alignment += simpleWeight * otherPeed.Forward;//.GetWithMagnitude(forceWeight);
                     // alignment += otherPeed.transform.forward; //.GetWithMagnitude(forceWeight); //TODO: should we apply weight for this 2? 
                     // cohesion += simpleWeight > 0.8f ? closestPoint : Vector3.zero; //.GetWithMagnitude(distancePercent);
                     cohesion += simpleWeight * closestPoint;//.GetWithMagnitude(distancePercent);
@@ -225,17 +230,13 @@ namespace Flocking
             }
 
             // TODO: change to desired velocity instead of forward?
-            alignment = weights.alg * (alignment / coCount - peep.transform.forward);
-            // alignment = weights.alg * (alignment / sumWeights - peep.transform.forward);
-            // alignment = alignment.normalized;
-            // cohesion = cohesion / coCount - position;
-            cohesion = weights.coh * (cohesion / coCount - position); // TODO: coh = 9/100
+            // alignment = weights.alg * (alignment / coCount - peep.Velocity.ToVector3XZ().normalized);
+            alignment = weights.alignment * (alignment / coCount - peep.Forward);
+            cohesion = weights.cohesion * (cohesion / coCount - position); // TODO: coh = 9/100
+            separation = weights.separation * separation;
+            var self = weights.self * peep.Velocity.ToVector3XZ();
 
-            separation = weights.sep * separation;
-            
-            
-
-            var desiredVelocity = (cohesion + alignment + separation) / weights.Sum;
+            var desiredVelocity = (cohesion + alignment + separation + self) / weights.Sum;
             DebugDraw.DrawArrowXZ(
                 position + Vector3.up,
                 desiredVelocity,

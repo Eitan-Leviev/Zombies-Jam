@@ -39,6 +39,8 @@ namespace Flocking {
             }
         }
 
+        public Vector3 Forward => body.transform.forward;
+
         public Vector3 Position {
             get {
                 return body.position;
