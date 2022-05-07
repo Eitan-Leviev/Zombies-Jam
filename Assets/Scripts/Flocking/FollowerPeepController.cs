@@ -36,6 +36,12 @@ namespace Flocking
         bool repelFromSameGroup;
 
         [SerializeField]
+        private bool repelFromOtherGroup;
+
+        [SerializeField]
+        private float otherGroupWeight = 1.5f;
+
+        [SerializeField]
         private Weights weights = new Weights();
 
         [Serializable]
@@ -146,7 +152,7 @@ namespace Flocking
             }
            
 
-            if (desiredVelocity.sqrMagnitude < 0.1f)
+            if (desiredVelocity.sqrMagnitude < 0.5f)
             {
                 return;
             }
@@ -184,7 +190,11 @@ namespace Flocking
             var separation = Vector3.zero;
             var alignment = Vector3.zero;
             var cohesion = Vector3.zero;
+            var otherSep = Vector3.zero;
+            var otherAli = Vector3.zero;
+            var otherCoh= Vector3.zero;
             var coCount = 0;
+            var otCount = 0;
 
             for (int i = 0; i < hits; i++)
             {
@@ -206,12 +216,7 @@ namespace Flocking
                     var otherPeed = hit.attachedRigidbody.GetComponent<PeepController>();
                     // Ignore peeps that are not from this group.
                     // TODO: Zombies chase, humans run away
-                    if (otherPeed.Group != peep.Group)
-                    {
-                        continue;
-                    }
-
-                    repel = repelFromSameGroup;
+                    repel = otherPeed.Group != peep.Group ? repelFromOtherGroup : repelFromSameGroup;
                 }
 
                 var closestPoint = hit.ClosestPoint(position);
@@ -255,10 +260,19 @@ namespace Flocking
                 if (hit.CompareTag(peepTag))
                 {
                     var otherPeed = hit.attachedRigidbody.GetComponent<PeepController>();
-                    // TODO: only if same group for now, require thinking of desired state
-                    alignment += simpleWeight * otherPeed.Forward;
-                    cohesion += simpleWeight * closestPoint;//.GetWithMagnitude(distancePercent);
-                    coCount++;
+                    if (otherPeed.Group == peep.Group || !repelFromOtherGroup)
+                    {
+                        // TODO: only if same group for now, require thinking of desired state
+                        alignment += simpleWeight * otherPeed.Forward;
+                        cohesion += simpleWeight * closestPoint;//.GetWithMagnitude(distancePercent);
+                        coCount++;
+                    }
+                    else
+                    {
+                        //otherAli += simpleWeight * otherPeed.Forward; TODO: we care about zombie alignment?
+                        otherCoh += simpleWeight * closestPoint;//.GetWithMagnitude(distancePercent);
+                        otCount++;
+                    }
                 }
 
                 direction = direction.normalized * forceWeight;
@@ -297,6 +311,10 @@ namespace Flocking
             {
                 alignment = weights.alignment * (alignment / coCount - peep.Forward);
                 cohesion = weights.cohesion * (cohesion / coCount - position);
+                if (otCount > 0)
+                {
+                    cohesion -= otherGroupWeight * weights.cohesion * ((otherCoh / otCount) - position);
+                }
                 desiredVelocity = (cohesion + alignment + separation + self) / weights.Sum;
             }
             
