@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5964085916014077696, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: rotationSpeed
-      value: 0.2
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: repelWalls
