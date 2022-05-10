@@ -24,8 +24,8 @@ public class SafeZone : MonoBehaviour
     private GameObject canvas;
     public static int SafePeepsCounter = 0;
 
-    public const int peepsNum = 8;
-
+    [SerializeField] private int peepsNum = 15;
+    
     private void Awake()
     {
         canvas = GameObject.Find("Canvas");
