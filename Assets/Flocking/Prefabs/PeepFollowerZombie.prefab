@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5964085916014077696, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: maxSpeed
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5964085916014077696, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: acceleration
@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5964085916014077696, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: rotationSpeed
-      value: 0.08
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: repelWalls
@@ -81,11 +81,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: senseRadius
-      value: 6
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: visionAngle
-      value: 90
+      value: 135
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.alg
@@ -101,27 +101,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: leaderWeight
-      value: 3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.self
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: distanceToLeader
-      value: 2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
+      propertyPath: otherGroupWeight
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.cohesion
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
+      propertyPath: leaderMask.m_Bits
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.alignment
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.separation
-      value: 1
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: repelFromOtherGroup
@@ -129,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: slowDistanceFromLeader
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}

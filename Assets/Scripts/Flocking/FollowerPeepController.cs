@@ -69,7 +69,6 @@ namespace Flocking
 
         private static readonly Collider[] COLLIDER_RESULTS = new Collider[10];
         [SerializeField]
-        [Min(0)]
         private float distanceToLeader = 1;
 
         [SerializeField]
