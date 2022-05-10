@@ -18,9 +18,17 @@ public class SafeZone : MonoBehaviour
     [SerializeField]
     string peepTag;
 
-    private int safePeepsCounter = 0;
+    [SerializeField] private GameObject scorePrefab;
+    
+    private GameObject canvas;
+    public static int SafePeepsCounter = 0;
 
-    private const int peepsNum = 8;
+    public const int peepsNum = 8;
+
+    private void Awake()
+    {
+        canvas = GameObject.Find("Canvas");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -34,13 +42,15 @@ public class SafeZone : MonoBehaviour
                 // disappear 
                 other.gameObject.SetActive(false);
                 // count safe peeps
-                safePeepsCounter++;
+                SafePeepsCounter++;
+                // display
+                Instantiate(scorePrefab, canvas.transform);
             }
             
             // if leader got safe
             if (other.gameObject.layer == LayerMask.NameToLayer("Leader"))
             {
-                if (safePeepsCounter == peepsNum)
+                if (SafePeepsCounter == peepsNum)
                 {
                     print("HUMANS WON");
                     other.gameObject.SetActive(false);
