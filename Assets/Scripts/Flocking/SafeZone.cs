@@ -5,6 +5,7 @@ using Avrahamy;
 using BitStrap;
 using Flocking;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SafeZone : MonoBehaviour
 {
@@ -53,9 +54,22 @@ public class SafeZone : MonoBehaviour
                 if (SafePeepsCounter == peepsNum)
                 {
                     print("HUMANS WON");
-                    other.gameObject.SetActive(false);
+                    SceneManager.LoadScene(0);
                 }
                 // DebugLog.Log("Leader", Color.blue, other);
+            }
+        }
+    }
+
+    private void OnCollisionStay(Collision other)
+    {
+        // if leader got safe
+        if (other.gameObject.layer == LayerMask.NameToLayer("Leader"))
+        {
+            if (SafePeepsCounter == peepsNum)
+            {
+                print("HUMANS WON");
+                SceneManager.LoadScene(0);
             }
         }
     }
