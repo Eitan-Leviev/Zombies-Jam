@@ -20,15 +20,34 @@ public class SafeZone : MonoBehaviour
     string peepTag;
 
     [SerializeField] private GameObject scorePrefab;
+
+    [SerializeField] private int peepsNum = 15;
+
+    [Header("Shader Effects")]
+    [SerializeField]
+    private PassiveTimer waveTimer;
     
     private GameObject canvas;
     public static int SafePeepsCounter = 0;
 
-    [SerializeField] private int peepsNum = 15;
-    
+    private Material _myMat;
+    private static readonly int plopPos = Shader.PropertyToID("_PlopPos");
+    private static readonly int resetPlop = Shader.PropertyToID("_ResetPlop");
+    private static readonly int lastPlop = Shader.PropertyToID("_LastPlop");
+
     private void Awake()
     {
         canvas = GameObject.Find("Canvas");
+        _myMat = GetComponent<MeshRenderer>().material;
+    }
+
+    private void Update()
+    {
+        if (waveTimer.IsSet && !waveTimer.IsActive)
+        {
+            waveTimer.Clear();
+            _myMat.SetInt(resetPlop, 0);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -36,10 +55,14 @@ public class SafeZone : MonoBehaviour
         if (other.CompareTag(peepTag))
         {
             var peepController = other.GetComponentInParent<PeepController>();
-
             // if peep got safe
             if (peepController.Group != 0 && other.gameObject.layer != LayerMask.NameToLayer("Leader"))
             {
+                _myMat.SetVector(plopPos, peepController.transform.position);
+                _myMat.SetInt(resetPlop, 1);
+                _myMat.SetFloat(lastPlop, Time.time);
+                waveTimer.Start();
+
                 // disappear 
                 other.gameObject.SetActive(false);
                 // count safe peeps
