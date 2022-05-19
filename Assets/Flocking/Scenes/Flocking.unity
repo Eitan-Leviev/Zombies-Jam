@@ -572,6 +572,10 @@ PrefabInstance:
       propertyPath: zombiePeep
       value: 
       objectReference: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: maxSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: m_Name
       value: PeepFollowerZombie (3)
@@ -928,6 +932,10 @@ PrefabInstance:
       propertyPath: zombiePeep
       value: 
       objectReference: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: maxSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: m_Name
       value: PeepFollowerZombie (6)
@@ -1004,6 +1012,10 @@ PrefabInstance:
       propertyPath: zombiePeep
       value: 
       objectReference: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: maxSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: m_Name
       value: PeepFollowerZombie (5)
@@ -1879,6 +1891,10 @@ PrefabInstance:
       propertyPath: zombiePeep
       value: 
       objectReference: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: maxSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: m_Name
       value: PeepFollowerZombie (4)
@@ -2445,6 +2461,10 @@ PrefabInstance:
       propertyPath: zombiePeep
       value: 
       objectReference: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: maxSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: m_Name
       value: PeepFollowerZombie (7)
@@ -2828,7 +2848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5964085916014077696, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
       propertyPath: maxSpeed
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6363803950831840129, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
       propertyPath: moveAction
@@ -4037,6 +4057,10 @@ PrefabInstance:
       propertyPath: zombiePeep
       value: 
       objectReference: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: maxSpeed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: m_Name
       value: PeepFollowerZombie (2)
@@ -4701,7 +4725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5964085916014077696, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
       propertyPath: maxSpeed
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5964085916014077696, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
       propertyPath: rotationSpeed
