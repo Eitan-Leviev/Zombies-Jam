@@ -134,6 +134,34 @@ PrefabInstance:
       propertyPath: zombiePeep
       value: 
       objectReference: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: visionAngle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: leaderWeight
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: otherGroupWeight
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: slowDistanceFromLeader
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: maxSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: acceleration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: rotationSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: m_Name
       value: PeepFollowerZombie (1)
@@ -269,7 +297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: senseRadius
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: visionAngle
@@ -288,12 +316,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
+      propertyPath: leaderWeight
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.self
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: distanceToLeader
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: otherGroupWeight
@@ -305,7 +337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.alignment
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: repelFromSameGroup
@@ -337,7 +369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: slowDistanceFromLeader
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationTimer.duration
@@ -481,7 +513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: senseRadius
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: visionAngle
@@ -500,12 +532,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
+      propertyPath: leaderWeight
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.self
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: distanceToLeader
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: otherGroupWeight
@@ -517,7 +553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.alignment
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: repelFromSameGroup
@@ -549,7 +585,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: slowDistanceFromLeader
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationTimer.duration
@@ -713,9 +749,33 @@ PrefabInstance:
       propertyPath: zombiePeep
       value: 
       objectReference: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: visionAngle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: leaderWeight
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: otherGroupWeight
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: slowDistanceFromLeader
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: maxSpeed
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: acceleration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: rotationSpeed
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: m_Name
@@ -959,9 +1019,33 @@ PrefabInstance:
       propertyPath: zombiePeep
       value: 
       objectReference: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: visionAngle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: leaderWeight
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: otherGroupWeight
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: slowDistanceFromLeader
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: maxSpeed
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: acceleration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: rotationSpeed
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: m_Name
@@ -1112,7 +1196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: senseRadius
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: visionAngle
@@ -1131,12 +1215,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
+      propertyPath: leaderWeight
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.self
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: distanceToLeader
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: otherGroupWeight
@@ -1148,7 +1236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.alignment
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: repelFromSameGroup
@@ -1164,7 +1252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationMask.m_Bits
-      value: 320
+      value: 448
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.Array.data[0]
@@ -1180,7 +1268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: slowDistanceFromLeader
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationTimer.duration
@@ -1406,7 +1494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: senseRadius
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: visionAngle
@@ -1425,12 +1513,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
+      propertyPath: leaderWeight
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.self
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: distanceToLeader
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: otherGroupWeight
@@ -1442,7 +1534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.alignment
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: repelFromSameGroup
@@ -1458,7 +1550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationMask.m_Bits
-      value: 320
+      value: 448
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.Array.data[0]
@@ -1474,7 +1566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: slowDistanceFromLeader
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationTimer.duration
@@ -1567,7 +1659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: senseRadius
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: visionAngle
@@ -1586,12 +1678,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
+      propertyPath: leaderWeight
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.self
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: distanceToLeader
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: otherGroupWeight
@@ -1603,7 +1699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.alignment
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: repelFromSameGroup
@@ -1619,7 +1715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationMask.m_Bits
-      value: 320
+      value: 448
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.Array.data[0]
@@ -1635,7 +1731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: slowDistanceFromLeader
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationTimer.duration
@@ -1738,7 +1834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: senseRadius
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: visionAngle
@@ -1757,12 +1853,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
+      propertyPath: leaderWeight
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.self
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: distanceToLeader
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: otherGroupWeight
@@ -1774,7 +1874,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.alignment
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: repelFromSameGroup
@@ -1790,7 +1890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationMask.m_Bits
-      value: 320
+      value: 448
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.Array.data[0]
@@ -1806,7 +1906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: slowDistanceFromLeader
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationTimer.duration
@@ -1999,7 +2099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: senseRadius
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: visionAngle
@@ -2018,12 +2118,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
+      propertyPath: leaderWeight
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.self
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: distanceToLeader
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: otherGroupWeight
@@ -2035,7 +2139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.alignment
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: repelFromSameGroup
@@ -2067,7 +2171,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: slowDistanceFromLeader
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationTimer.duration
@@ -2091,9 +2195,33 @@ PrefabInstance:
       propertyPath: zombiePeep
       value: 
       objectReference: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: visionAngle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: leaderWeight
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: otherGroupWeight
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: slowDistanceFromLeader
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: maxSpeed
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: acceleration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: rotationSpeed
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: m_Name
@@ -2235,7 +2363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: senseRadius
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: visionAngle
@@ -2254,12 +2382,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
+      propertyPath: leaderWeight
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.self
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: distanceToLeader
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: otherGroupWeight
@@ -2271,7 +2403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.alignment
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: repelFromSameGroup
@@ -2303,7 +2435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: slowDistanceFromLeader
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationTimer.duration
@@ -2385,9 +2517,21 @@ PrefabInstance:
       propertyPath: zombiePeep
       value: 
       objectReference: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: maxSpeed
-      value: 20
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: visionAngle
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: leaderWeight
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: otherGroupWeight
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: slowDistanceFromLeader
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: m_Name
@@ -2455,6 +2599,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 86618362}
     m_Modifications:
+    - target: {fileID: 210005964810446727, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 779138459073985826, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2535,6 +2683,10 @@ PrefabInstance:
       propertyPath: moveAction
       value: 
       objectReference: {fileID: -3416305319605927525, guid: 9a14f9d4eac714e4da9c0a600f483277, type: 3}
+    - target: {fileID: 7423917547061940968, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
 --- !u!1 &1286712834 stripped
@@ -2675,7 +2827,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: senseRadius
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: visionAngle
@@ -2694,12 +2846,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
+      propertyPath: leaderWeight
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.self
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: distanceToLeader
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: otherGroupWeight
@@ -2711,7 +2867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.alignment
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: repelFromSameGroup
@@ -2727,7 +2883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationMask.m_Bits
-      value: 320
+      value: 448
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.Array.data[0]
@@ -2743,7 +2899,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: slowDistanceFromLeader
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationTimer.duration
@@ -2936,7 +3092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: senseRadius
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: visionAngle
@@ -2955,12 +3111,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
+      propertyPath: leaderWeight
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.self
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: distanceToLeader
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: otherGroupWeight
@@ -2972,7 +3132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.alignment
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: repelFromSameGroup
@@ -2988,7 +3148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationMask.m_Bits
-      value: 320
+      value: 448
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.Array.data[0]
@@ -3004,7 +3164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: slowDistanceFromLeader
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationTimer.duration
@@ -3097,7 +3257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: senseRadius
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: visionAngle
@@ -3116,12 +3276,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
+      propertyPath: leaderWeight
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.self
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: distanceToLeader
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: otherGroupWeight
@@ -3133,7 +3297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.alignment
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: repelFromSameGroup
@@ -3165,7 +3329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: slowDistanceFromLeader
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationTimer.duration
@@ -3358,7 +3522,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: senseRadius
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: visionAngle
@@ -3377,12 +3541,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
+      propertyPath: leaderWeight
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.self
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: distanceToLeader
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: otherGroupWeight
@@ -3394,7 +3562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.alignment
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: repelFromSameGroup
@@ -3410,7 +3578,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationMask.m_Bits
-      value: 320
+      value: 448
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.Array.data[0]
@@ -3426,7 +3594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: slowDistanceFromLeader
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationTimer.duration
@@ -3524,7 +3692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: senseRadius
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: visionAngle
@@ -3543,12 +3711,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
+      propertyPath: leaderWeight
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.self
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: distanceToLeader
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: otherGroupWeight
@@ -3560,7 +3732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.alignment
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: repelFromSameGroup
@@ -3576,7 +3748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationMask.m_Bits
-      value: 320
+      value: 448
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.Array.data[0]
@@ -3592,7 +3764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: slowDistanceFromLeader
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationTimer.duration
@@ -3812,7 +3984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: senseRadius
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: visionAngle
@@ -3831,12 +4003,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
+      propertyPath: leaderWeight
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.self
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: distanceToLeader
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: otherGroupWeight
@@ -3848,7 +4024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.alignment
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: repelFromSameGroup
@@ -3880,7 +4056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: slowDistanceFromLeader
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationTimer.duration
@@ -4192,7 +4368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: senseRadius
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: visionAngle
@@ -4211,12 +4387,16 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
+      propertyPath: leaderWeight
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.self
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: distanceToLeader
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: otherGroupWeight
@@ -4228,7 +4408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.alignment
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: repelFromSameGroup
@@ -4244,7 +4424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationMask.m_Bits
-      value: 320
+      value: 448
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.Array.data[0]
@@ -4260,7 +4440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: slowDistanceFromLeader
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: navigationTimer.duration
@@ -4275,6 +4455,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 174412827}
     m_Modifications:
+    - target: {fileID: 210005964810446727, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 779138459073985826, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4340,8 +4524,16 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5964085916014077696, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
+      propertyPath: acceleration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5964085916014077696, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
       propertyPath: rotationSpeed
-      value: 0.15
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423917547061940968, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
