@@ -64,7 +64,7 @@ public class SafeZone : MonoBehaviour
                 waveTimer.Start();
 
                 // disappear 
-                other.gameObject.SetActive(false);
+                peepController.gameObject.SetActive(false);
                 // count safe peeps
                 SafePeepsCounter++;
                 // display
@@ -72,7 +72,7 @@ public class SafeZone : MonoBehaviour
             }
             
             // if leader got safe
-            if (other.gameObject.layer == LayerMask.NameToLayer("Leader"))
+            if (peepController.Group != 0  && other.gameObject.layer == LayerMask.NameToLayer("Leader"))
             {
                 if (SafePeepsCounter == peepsNum)
                 {

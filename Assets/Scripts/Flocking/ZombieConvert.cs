@@ -28,7 +28,7 @@ namespace Flocking
         public bool CheckConvert(PeepController other, float distance)
         {
             // DebugLog.Log(LogTag.Gameplay, $"Checking bite: {distance}", other);
-            if (distance < biteDistance)
+            if (distance < biteDistance && other.gameObject.activeSelf)
             {
                 Convert(other.Position, other.transform.rotation, other);
                 return true;
@@ -69,7 +69,7 @@ namespace Flocking
 
         private void Convert(Vector3 pos, Quaternion rot, PeepController otherPeep)
         {
-            DebugLog.Log(LogTag.Gameplay, "Zombie Tagged", this);
+            DebugLog.Log(LogTag.Gameplay, "Zombie Tagged", otherPeep);
             otherPeep.gameObject.SetActive(false);
             var newZombie = Instantiate(zombiePeep,
                 pos,

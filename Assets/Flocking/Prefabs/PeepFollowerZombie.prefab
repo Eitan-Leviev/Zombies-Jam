@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5964085916014077696, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: maxSpeed
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5964085916014077696, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: acceleration
