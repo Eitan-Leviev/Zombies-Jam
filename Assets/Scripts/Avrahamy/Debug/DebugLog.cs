@@ -113,7 +113,7 @@ namespace Avrahamy {
         public static void Log(LogTag tag, object message, UnityEngine.Object context = null) {
             if (!ShouldLog(tag)) return;
             message = GetLogWithColor(tag, message);
-            UnityEngine.Debug.Log(Time.realtimeSinceStartup.ToString("0.00") + ": " + message, context);
+            // UnityEngine.Debug.Log(Time.realtimeSinceStartup.ToString("0.00") + ": " + message, context);
         }
 
         [Conditional("DEBUG_LOG")]

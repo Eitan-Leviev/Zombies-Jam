@@ -4,6 +4,8 @@ using Random = UnityEngine.Random;
 using Avrahamy;
 using Avrahamy.Math;
 using BitStrap;
+using UnityEngine.SceneManagement;
+
 namespace Flocking
 {
     public class ZombieConvert : MonoBehaviour
@@ -62,6 +64,12 @@ namespace Flocking
                 var otherPeep = collision.gameObject.GetComponent<PeepController>();
                 if (otherPeep.Group != zombieGroup)
                 {
+                    // if leader got caught
+                    if (collision.gameObject.name == "PeepLeaderBlue")
+                    {
+                        SceneManager.LoadScene(0);
+                    }
+                    
                     Convert(collision.transform.position, collision.transform.rotation, otherPeep);
                 }
             }
@@ -69,6 +77,7 @@ namespace Flocking
 
         private void Convert(Vector3 pos, Quaternion rot, PeepController otherPeep)
         {
+            SafeZone.peepsNum--;
             DebugLog.Log(LogTag.Gameplay, "Zombie Tagged", otherPeep);
             otherPeep.gameObject.SetActive(false);
             var newZombie = Instantiate(zombiePeep,

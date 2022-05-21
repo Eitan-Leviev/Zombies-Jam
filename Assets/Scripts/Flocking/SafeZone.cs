@@ -20,8 +20,8 @@ public class SafeZone : MonoBehaviour
     string peepTag;
 
     [SerializeField] private GameObject scorePrefab;
-
-    [SerializeField] private int peepsNum = 15;
+    
+    public static int peepsNum = 15;
 
     [Header("Shader Effects")]
     [SerializeField]
@@ -43,6 +43,8 @@ public class SafeZone : MonoBehaviour
 
     private void Update()
     {
+        // print("peepsNum: " + SafeZone.peepsNum);
+
         if (waveTimer.IsSet && !waveTimer.IsActive)
         {
             waveTimer.Clear();
@@ -67,6 +69,7 @@ public class SafeZone : MonoBehaviour
                 peepController.gameObject.SetActive(false);
                 // count safe peeps
                 SafePeepsCounter++;
+                // print("SafePeepsCounter: " + SafePeepsCounter);
                 // display
                 Instantiate(scorePrefab, canvas.transform);
             }
@@ -84,7 +87,7 @@ public class SafeZone : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision other)
+    private void OnTriggerStay(Collider other)
     {
         // if leader got safe
         if (other.gameObject.layer == LayerMask.NameToLayer("Leader"))

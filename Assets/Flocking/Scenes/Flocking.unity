@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -152,7 +152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: maxSpeed
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: acceleration
@@ -767,7 +767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: maxSpeed
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: acceleration
@@ -1037,7 +1037,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: maxSpeed
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: acceleration
@@ -2213,7 +2213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: maxSpeed
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: acceleration
@@ -2532,6 +2532,10 @@ PrefabInstance:
     - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: slowDistanceFromLeader
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
+      propertyPath: maxSpeed
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: m_Name
@@ -4185,7 +4189,6 @@ MonoBehaviour:
     m_Bits: 128
   peepTag: Peep
   scorePrefab: {fileID: 3044605889450314443, guid: cd3d902022e67d540a48d8db59a95b0f, type: 3}
-  peepsNum: 15
   waveTimer:
     duration: 1
 --- !u!1 &2046809854
