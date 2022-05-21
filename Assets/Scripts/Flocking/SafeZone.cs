@@ -44,6 +44,7 @@ public class SafeZone : MonoBehaviour
     private void Update()
     {
         // print("peepsNum: " + SafeZone.peepsNum);
+        // print(CheckHumansNum());
 
         if (waveTimer.IsSet && !waveTimer.IsActive)
         {
@@ -77,11 +78,21 @@ public class SafeZone : MonoBehaviour
             // if leader got safe
             if (peepController.Group != 0  && other.gameObject.layer == LayerMask.NameToLayer("Leader"))
             {
-                if (SafePeepsCounter == peepsNum)
+                // print("SafePeepsCounter "+SafePeepsCounter+"peepsNum "+peepsNum);
+                if (CheckHumansNum() == 1)
                 {
+                    GameManager.HumansScore++;
+                    print(GameManager.HumansScore);
                     print("HUMANS WON");
                     SceneManager.LoadScene(0);
                 }
+                // if (SafePeepsCounter == peepsNum)
+                // {
+                //     GameManager.HumansScore++;
+                //     print(GameManager.HumansScore);
+                //     print("HUMANS WON");
+                //     SceneManager.LoadScene(0);
+                // }
                 // DebugLog.Log("Leader", Color.blue, other);
             }
         }
@@ -89,14 +100,39 @@ public class SafeZone : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        // print("SafePeepsCounter "+SafePeepsCounter+"peepsNum "+peepsNum);
         // if leader got safe
         if (other.gameObject.layer == LayerMask.NameToLayer("Leader"))
         {
-            if (SafePeepsCounter == peepsNum)
+            if (CheckHumansNum() == 1)
             {
+                GameManager.HumansScore++;
+                print(GameManager.HumansScore);
                 print("HUMANS WON");
                 SceneManager.LoadScene(0);
             }
+            // if (SafePeepsCounter == peepsNum)
+            // {
+            //     GameManager.HumansScore++;
+            //     print(GameManager.HumansScore);
+            //     print("HUMANS WON");
+            //     SceneManager.LoadScene(0);
+            // }
         }
+    }
+
+    private int CheckHumansNum()
+    {
+        var blueParent = GameObject.Find("Blue");
+        int HumansNum = 0;
+        for(int i = 0; i < blueParent.transform.childCount; i++)
+        {
+            GameObject blue = blueParent.transform.GetChild(i).gameObject;
+            if (blue.activeSelf)
+            {
+                HumansNum++;
+            }
+        }
+        return HumansNum;
     }
 }

@@ -67,6 +67,9 @@ namespace Flocking
                     // if leader got caught
                     if (collision.gameObject.name == "PeepLeaderBlue")
                     {
+                        GameManager.ZombiesScore++;
+                        print(GameManager.ZombiesScore);
+                        print("ZOMBIES WON");
                         SceneManager.LoadScene(0);
                     }
                     

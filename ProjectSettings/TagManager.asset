@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Peep
   - Wall
+  - GameManager
   layers:
   - Default
   - TransparentFX
