@@ -134,22 +134,6 @@ PrefabInstance:
       propertyPath: zombiePeep
       value: 
       objectReference: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: visionAngle
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: leaderWeight
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: otherGroupWeight
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: slowDistanceFromLeader
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: maxSpeed
       value: 10
@@ -843,22 +827,6 @@ PrefabInstance:
       propertyPath: zombiePeep
       value: 
       objectReference: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: visionAngle
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: leaderWeight
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: otherGroupWeight
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: slowDistanceFromLeader
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: maxSpeed
       value: 10
@@ -1016,7 +984,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 395702525}
-  - component: {fileID: 395702526}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -1038,18 +1005,6 @@ Transform:
   m_Father: {fileID: 529964371}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &395702526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 395702524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b38a4006334e264fbeeac5a9cea2a2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &529964370
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,7 +1020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &529964371
 Transform:
   m_ObjectHideFlags: 0
@@ -1279,34 +1234,6 @@ PrefabInstance:
       propertyPath: zombiePeep
       value: 
       objectReference: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: visionAngle
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: leaderWeight
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: otherGroupWeight
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: slowDistanceFromLeader
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: maxSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: acceleration
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: rotationSpeed
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: m_Name
       value: PeepFollowerZombie
@@ -2455,22 +2382,6 @@ PrefabInstance:
       propertyPath: zombiePeep
       value: 
       objectReference: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: visionAngle
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: leaderWeight
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: otherGroupWeight
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: slowDistanceFromLeader
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: maxSpeed
       value: 10
@@ -2777,22 +2688,6 @@ PrefabInstance:
       propertyPath: zombiePeep
       value: 
       objectReference: {fileID: 4149665912990720868, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: visionAngle
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: leaderWeight
-      value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: otherGroupWeight
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 775874374161084445, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
-      propertyPath: slowDistanceFromLeader
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 2539170315066504706, guid: e2af8153f83d6f140b8fc1d85dcfbb94, type: 3}
       propertyPath: maxSpeed
       value: 10
@@ -2946,7 +2841,7 @@ PrefabInstance:
     - target: {fileID: 6363803950831840129, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
       propertyPath: moveAction
       value: 
-      objectReference: {fileID: -3416305319605927525, guid: 9a14f9d4eac714e4da9c0a600f483277, type: 3}
+      objectReference: {fileID: -1384549297373625068, guid: 9a14f9d4eac714e4da9c0a600f483277, type: 3}
     - target: {fileID: 7423917547061940968, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -4727,6 +4622,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 779138459073985826, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.581638
+      objectReference: {fileID: 0}
+    - target: {fileID: 779138459073985826, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.581638
+      objectReference: {fileID: 0}
+    - target: {fileID: 779138459073985826, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.581638
+      objectReference: {fileID: 0}
+    - target: {fileID: 779138459073985826, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 33.2
       objectReference: {fileID: 0}
@@ -4794,6 +4701,10 @@ PrefabInstance:
       propertyPath: rotationSpeed
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 6363803950831840129, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
+      propertyPath: moveAction
+      value: 
+      objectReference: {fileID: -3416305319605927525, guid: 9a14f9d4eac714e4da9c0a600f483277, type: 3}
     - target: {fileID: 7423917547061940968, guid: c35f3e6e613534c7382756320aa3ffac, type: 3}
       propertyPath: m_Mesh
       value: 

@@ -19,7 +19,8 @@ public class SafeZone : MonoBehaviour
     [SerializeField]
     string peepTag;
 
-    [SerializeField] private GameObject scorePrefab;
+    [SerializeField] 
+    private GameObject scorePrefab;
     
     public static int peepsNum = 15;
 
@@ -34,11 +35,13 @@ public class SafeZone : MonoBehaviour
     private static readonly int plopPos = Shader.PropertyToID("_PlopPos");
     private static readonly int resetPlop = Shader.PropertyToID("_ResetPlop");
     private static readonly int lastPlop = Shader.PropertyToID("_LastPlop");
+    private bool _bool = true;
 
     private void Awake()
     {
         canvas = GameObject.Find("Canvas");
         _myMat = GetComponent<MeshRenderer>().material;
+        peepsNum = CheckHumansNum();
     }
 
     private void Update()
@@ -55,6 +58,10 @@ public class SafeZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!_bool)
+        {
+            return;
+        }
         if (other.CompareTag(peepTag))
         {
             var peepController = other.GetComponentInParent<PeepController>();
@@ -69,7 +76,8 @@ public class SafeZone : MonoBehaviour
                 // disappear 
                 peepController.gameObject.SetActive(false);
                 // count safe peeps
-                SafePeepsCounter++;
+                peepsNum--;
+                // SafePeepsCounter++;
                 // print("SafePeepsCounter: " + SafePeepsCounter);
                 // display
                 Instantiate(scorePrefab, canvas.transform);
@@ -79,11 +87,12 @@ public class SafeZone : MonoBehaviour
             if (peepController.Group != 0  && other.gameObject.layer == LayerMask.NameToLayer("Leader"))
             {
                 // print("SafePeepsCounter "+SafePeepsCounter+"peepsNum "+peepsNum);
-                if (CheckHumansNum() == 1)
+                if (peepsNum == 1)
                 {
                     GameManager.HumansScore++;
                     print(GameManager.HumansScore);
                     print("HUMANS WON");
+                    _bool = false;
                     SceneManager.LoadScene(0);
                 }
                 // if (SafePeepsCounter == peepsNum)
@@ -100,15 +109,22 @@ public class SafeZone : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (!_bool)
+        {
+            return;
+        }
         // print("SafePeepsCounter "+SafePeepsCounter+"peepsNum "+peepsNum);
         // if leader got safe
         if (other.gameObject.layer == LayerMask.NameToLayer("Leader"))
         {
-            if (CheckHumansNum() == 1)
+            var peepController = other.GetComponentInParent<PeepController>();
+
+            if (peepsNum == 1 && peepController.Group != 0)
             {
                 GameManager.HumansScore++;
                 print(GameManager.HumansScore);
-                print("HUMANS WON");
+                Debug.Log("HUMANS WON", other);
+                _bool = false;
                 SceneManager.LoadScene(0);
             }
             // if (SafePeepsCounter == peepsNum)

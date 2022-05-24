@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5964085916014077696, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: maxSpeed
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5964085916014077696, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: acceleration
@@ -77,11 +77,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: ignoreWalls
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: senseRadius
-      value: 15
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: visionAngle
@@ -101,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: leaderWeight
-      value: 0.2
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.self
@@ -113,7 +113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: otherGroupWeight
-      value: 0.2
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: weights.cohesion
@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8880030674063434015, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}
       propertyPath: slowDistanceFromLeader
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b611b1d61d03f452eb7bd33f484e0b98, type: 3}

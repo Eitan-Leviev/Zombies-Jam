@@ -57,31 +57,32 @@ namespace Flocking
             peep.Group = zombieGroup;
         }
 
-        private void OnCollisionEnter(Collision collision)
-        {
-            if (collision.gameObject.CompareTag(peepTag))
-            {
-                var otherPeep = collision.gameObject.GetComponent<PeepController>();
-                if (otherPeep.Group != zombieGroup)
-                {
-                    // if leader got caught
-                    if (collision.gameObject.name == "PeepLeaderBlue")
-                    {
-                        GameManager.ZombiesScore++;
-                        print(GameManager.ZombiesScore);
-                        print("ZOMBIES WON");
-                        SceneManager.LoadScene(0);
-                    }
-                    
-                    Convert(collision.transform.position, collision.transform.rotation, otherPeep);
-                }
-            }
-        }
+        // private void OnCollisionEnter(Collision collision)
+        // {
+        //     if (collision.gameObject.CompareTag(peepTag))
+        //     {
+        //         var otherPeep = collision.gameObject.GetComponent<PeepController>();
+        //         if (otherPeep.Group != zombieGroup && otherPeep.gameObject.activeSelf)
+        //         {
+        //             // if leader got caught
+        //             if (collision.gameObject.name == "PeepLeaderBlue")
+        //             {
+        //                 GameManager.ZombiesScore++;
+        //                 print(GameManager.ZombiesScore);
+        //                 print("ZOMBIES WON");
+        //                 SceneManager.LoadScene(0);
+        //             }
+        //             
+        //             Convert(collision.transform.position, collision.transform.rotation, otherPeep);
+        //         }
+        //     }
+        // }
 
         private void Convert(Vector3 pos, Quaternion rot, PeepController otherPeep)
         {
             SafeZone.peepsNum--;
-            DebugLog.Log(LogTag.Gameplay, "Zombie Tagged", otherPeep);
+            // Debug.Log(SafeZone.peepsNum, otherPeep);
+            // DebugLog.Log(LogTag.Gameplay, "Zombie Tagged", otherPeep);
             otherPeep.gameObject.SetActive(false);
             var newZombie = Instantiate(zombiePeep,
                 pos,
