@@ -12,7 +12,6 @@ namespace Flocking {
         [SerializeField] float deceleration = 1f;
         [SerializeField] float minSqrSpeed = 0.1f;
         
-        // public static int
 
         public int Group {
             get {

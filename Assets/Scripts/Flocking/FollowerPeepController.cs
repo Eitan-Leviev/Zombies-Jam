@@ -62,7 +62,7 @@ namespace Flocking
             [SerializeField]
             [Min(0)]
             public int self = 1;
-            
+
             public int Sum => separation + alignment + cohesion + self;
         }
 
@@ -111,7 +111,7 @@ namespace Flocking
             var position = peep.Position;
 
             var leader = Vector3.zero;
-            
+
             var hits = Physics.OverlapSphereNonAlloc(
                 position,
                 senseRadius,
@@ -127,7 +127,7 @@ namespace Flocking
                     {
                         continue;
                     }
-                    
+
                     var otherPeed = hit.attachedRigidbody.GetComponent<PeepController>();
                     if (otherPeed.Group != peep.Group)
                     {
@@ -137,7 +137,7 @@ namespace Flocking
                     leader += LeaderFollow(otherPeed, position);
                 }
             }
-            
+
             // Check for colliders in the sense radius.
             hits = Physics.OverlapSphereNonAlloc(
                 position,
@@ -151,11 +151,12 @@ namespace Flocking
             {
                 desiredVelocity = DesiredVelocity(hits, position);
             }
+
             if (!leader.Equals(Vector3.zero))
             {
                 desiredVelocity = (desiredVelocity + leaderWeight * leader) / (leaderWeight + 1);
             }
-           
+
 
             if (desiredVelocity.sqrMagnitude < 0.5f)
             {
@@ -182,12 +183,12 @@ namespace Flocking
             var desiredVelocity = (clippedSpeed / distance) * targetOffset;
             DebugDraw.DrawArrowXZ(
                 position + Vector3.up,
-                desiredVelocity - peep.Forward,//Velocity.ToVector3XZ(),
+                desiredVelocity - peep.Forward, //Velocity.ToVector3XZ(),
                 1f,
                 30f,
-                Color.cyan,
+                Color.yellow,
                 navigationTimer.Duration / 2);
-            return desiredVelocity - peep.Forward;//Velocity.ToVector3XZ();
+            return desiredVelocity - peep.Forward; //Velocity.ToVector3XZ();
         }
 
         private Vector3 DesiredVelocity(int hits, Vector3 position)
@@ -197,7 +198,7 @@ namespace Flocking
             var cohesion = Vector3.zero;
             var otherSep = Vector3.zero;
             var otherAli = Vector3.zero;
-            var otherCoh= Vector3.zero;
+            var otherCoh = Vector3.zero;
             var coCount = 0;
             var otCount = 0;
 
@@ -273,22 +274,22 @@ namespace Flocking
                     {
                         // TODO: only if same group for now, require thinking of desired state
                         alignment += simpleWeight * otherPeed.Forward;
-                        cohesion += simpleWeight * closestPoint;//.GetWithMagnitude(distancePercent);
+                        cohesion += simpleWeight * closestPoint; //.GetWithMagnitude(distancePercent);
                         coCount++;
                     }
                     else
                     {
-                        if (otherPeed.Group == zombieGroup)
-                        {
-                            var zombie = hit.attachedRigidbody.GetComponent<ZombieConvert>();
-                            if (zombie.CheckConvert(peep, magnitude))
-                            {
-                                return Vector3.zero; // TODO:
-                            }
-                        }
                         //otherAli += simpleWeight * otherPeed.Forward; TODO: we care about zombie alignment?
-                        otherCoh += simpleWeight * closestPoint;//.GetWithMagnitude(distancePercent);
+                        otherCoh += simpleWeight * closestPoint; //.GetWithMagnitude(distancePercent);
                         otCount++;
+                    }
+                    if (peep.Group == zombieGroup && otherPeed.Group != zombieGroup)
+                    {
+                        var zombie = GetComponent<ZombieConvert>();
+                        if (zombie.CheckConvert(otherPeed, magnitude))
+                        {
+                            return Vector3.zero; // TODO:
+                        }
                     }
                 }
 
@@ -312,13 +313,14 @@ namespace Flocking
                         direction * 3f,
                         1f,
                         30f,
-                        Color.green,
+                        Color.white,
                         navigationTimer.Duration / 2);
                 }
             }
+
             var self = weights.self * peep.Velocity.ToVector3XZ();
             separation = weights.separation * separation;
-            
+
             Vector3 desiredVelocity;
             if (coCount == 0)
             {
@@ -332,9 +334,10 @@ namespace Flocking
                 {
                     cohesion -= otherGroupWeight * weights.cohesion * ((otherCoh / otCount) - position);
                 }
+
                 desiredVelocity = (cohesion + alignment + separation + self) / weights.Sum;
             }
-            
+
             DebugDraw.DrawArrowXZ(
                 position + Vector3.up,
                 desiredVelocity,
@@ -342,7 +345,7 @@ namespace Flocking
                 30f,
                 Color.black,
                 navigationTimer.Duration / 2);
-            
+
             DebugDraw.DrawArrowXZ(
                 position + Vector3.up,
                 separation,

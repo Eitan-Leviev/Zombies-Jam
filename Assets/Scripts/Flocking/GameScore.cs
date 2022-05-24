@@ -1,19 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameScore : MonoBehaviour
+namespace Flocking
 {
-    private void Awake()
+    public class GameScore : MonoBehaviour
     {
-        if (gameObject.name == "HumansScore txt")
+        private void Awake()
         {
-            GetComponent<Text>().text = GameManager.HumansScore.ToString();
-        }
-        else
-        {
+            if (gameObject.name == "HumansScore txt")
+            {
+                GetComponent<Text>().text = GameManager.HumansScore.ToString();
+                return;
+            }
             GetComponent<Text>().text = GameManager.ZombiesScore.ToString();
         }
     }

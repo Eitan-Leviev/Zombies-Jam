@@ -10,9 +10,11 @@ namespace Flocking
 {
     public class ZombieConvert : MonoBehaviour
     {
+        #region Inspector
+
         [SerializeField]
         PeepController peep;
-        
+
         [TagSelector]
         [SerializeField]
         string peepTag;
@@ -22,10 +24,13 @@ namespace Flocking
 
         [SerializeField]
         private float biteDistance;
-        // TODO: if we use that instead of collision we need to get the info from the followerScript
 
         [SerializeField]
         private GameObject zombiePeep;
+
+        #endregion
+
+        #region Public Methods
 
         public bool CheckConvert(PeepController other, float distance)
         {
@@ -38,6 +43,10 @@ namespace Flocking
 
             return false;
         }
+
+        #endregion
+
+        #region MonoBehaviour
 
         protected void Reset()
         {
@@ -57,30 +66,33 @@ namespace Flocking
             peep.Group = zombieGroup;
         }
 
-        // private void OnCollisionEnter(Collision collision)
-        // {
-        //     if (collision.gameObject.CompareTag(peepTag))
-        //     {
-        //         var otherPeep = collision.gameObject.GetComponent<PeepController>();
-        //         if (otherPeep.Group != zombieGroup && otherPeep.gameObject.activeSelf)
-        //         {
-        //             // if leader got caught
-        //             if (collision.gameObject.name == "PeepLeaderBlue")
-        //             {
-        //                 GameManager.ZombiesScore++;
-        //                 print(GameManager.ZombiesScore);
-        //                 print("ZOMBIES WON");
-        //                 SceneManager.LoadScene(0);
-        //             }
-        //             
-        //             Convert(collision.transform.position, collision.transform.rotation, otherPeep);
-        //         }
-        //     }
-        // }
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (collision.gameObject.CompareTag(peepTag))
+            {
+                var otherPeep = collision.gameObject.GetComponent<PeepController>();
+                if (otherPeep.Group != zombieGroup && otherPeep.gameObject.activeSelf)
+                {
+                    Convert(collision.transform.position, collision.transform.rotation, otherPeep);
+                }
+            }
+        }
+
+        #endregion
+
+        #region Private Methods
 
         private void Convert(Vector3 pos, Quaternion rot, PeepController otherPeep)
         {
-            SafeZone.peepsNum--;
+            if (otherPeep.gameObject.layer == LayerMask.NameToLayer("Leader"))
+            {
+                GameManager.ZombiesScore++;
+                DebugLog.Log(GameManager.ZombiesScore);
+                print("ZOMBIES WON");
+                SceneManager.LoadScene(0);
+            }
+
+            SafeZone.PeepsNum--;
             // Debug.Log(SafeZone.peepsNum, otherPeep);
             // DebugLog.Log(LogTag.Gameplay, "Zombie Tagged", otherPeep);
             otherPeep.gameObject.SetActive(false);
@@ -89,5 +101,7 @@ namespace Flocking
                 rot,
                 transform.parent);
         }
+
+        #endregion
     }
 }

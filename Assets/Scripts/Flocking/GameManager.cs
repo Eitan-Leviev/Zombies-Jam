@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class GameManager
+namespace Flocking
 {
-    public static int ZombiesScore = 0;
-    public static int HumansScore = 0;
-
+    public static class GameManager
+    {
+        public static int ZombiesScore { get; set; } = 0;
+        public static int HumansScore { get; set; } = 0;
+    }
 }
