@@ -212,7 +212,6 @@ namespace Flocking
                     continue;
                 }
 
-                // TODO: do we want this? specifically for zombies?
                 // Always repel from walls.
                 var repel = true;
 
@@ -221,7 +220,6 @@ namespace Flocking
                     // Sensed another peep.
                     var otherPeed = hit.attachedRigidbody.GetComponent<PeepController>();
                     // Ignore peeps that are not from this group.
-                    // TODO: Zombies chase, humans run away
                     repel = otherPeed.Group != peep.Group ? repelFromOtherGroup : repelFromSameGroup;
                 }
                 else if (ignoreWalls)
@@ -266,20 +264,17 @@ namespace Flocking
                 }
 
 
-                // TODO: should be refactored with the first if
                 if (hit.CompareTag(peepTag))
                 {
                     var otherPeed = hit.attachedRigidbody.GetComponent<PeepController>();
                     if (otherPeed.Group == peep.Group || !repelFromOtherGroup)
                     {
-                        // TODO: only if same group for now, require thinking of desired state
                         alignment += simpleWeight * otherPeed.Forward;
                         cohesion += simpleWeight * closestPoint; //.GetWithMagnitude(distancePercent);
                         coCount++;
                     }
                     else
                     {
-                        //otherAli += simpleWeight * otherPeed.Forward; TODO: we care about zombie alignment?
                         otherCoh += simpleWeight * closestPoint; //.GetWithMagnitude(distancePercent);
                         otCount++;
                     }
@@ -288,7 +283,7 @@ namespace Flocking
                         var zombie = GetComponent<ZombieConvert>();
                         if (zombie.CheckConvert(otherPeed, magnitude))
                         {
-                            return Vector3.zero; // TODO:
+                            return Vector3.zero;
                         }
                     }
                 }
