@@ -110,6 +110,7 @@ namespace Flocking
                 if (PeepsNum == 1 && peepController.Group != zombieGroup)
                 {
                     GameManager.HumansScore++;
+                    GameManager.WhoWon = 0;
                     DebugLog.Log(GameManager.HumansScore);
                     Debug.Log("HUMANS WON", other);
                     _bool = false;

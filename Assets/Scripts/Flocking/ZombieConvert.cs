@@ -87,6 +87,7 @@ namespace Flocking
             if (otherPeep.gameObject.layer == LayerMask.NameToLayer("Leader"))
             {
                 GameManager.ZombiesScore++;
+                GameManager.WhoWon = 1;
                 DebugLog.Log(GameManager.ZombiesScore);
                 print("ZOMBIES WON");
                 SceneManager.LoadScene(0);
