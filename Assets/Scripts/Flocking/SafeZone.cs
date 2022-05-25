@@ -37,7 +37,7 @@ namespace Flocking
         public static int SafePeepsCounter { get; } = 0;
 
         private Material _myMat;
-        private bool _bool = true;
+        private bool _roundOver = true;
 
         #region MonoBehaviour
 
@@ -58,7 +58,7 @@ namespace Flocking
 
         private void OnTriggerEnter(Collider other)
         {
-            // if (!_bool)
+            // if (!_roundOver)
             // {
             //     return;
             // }
@@ -88,7 +88,7 @@ namespace Flocking
                 //         GameManager.HumansScore++;
                 //         DebugLog.Log(GameManager.HumansScore);
                 //         DebugLog.Log("HUMANS WON");
-                //         _bool = false;
+                //         _roundOver = false;
                 //         SceneManager.LoadScene(0);
                 //     }
                 // }
@@ -97,7 +97,7 @@ namespace Flocking
 
         private void OnTriggerStay(Collider other)
         {
-            if (!_bool)
+            if (!_roundOver)
             {
                 return;
             }
@@ -113,7 +113,7 @@ namespace Flocking
                     GameManager.WhoWon = 0;
                     DebugLog.Log(GameManager.HumansScore);
                     Debug.Log("HUMANS WON", other);
-                    _bool = false;
+                    _roundOver = false;
                     SceneManager.LoadScene(0);
                 }
             }
