@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="TITLE0001-0047.avi0045.png" width="300"/>
+  <img src="logo.jpg" width="300"/>
 
   </h1>
 <h3 align="center">  
